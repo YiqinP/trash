@@ -1,0 +1,28 @@
+from sklearn.metrics import classification_report
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# 提取数据并转换为 DataFrame
+data = {}
+for model, report in reports.items():
+    # 只取平均值的部分
+    data[model] = {
+        "Precision": report["weighted avg"]["precision"],
+        "Recall": report["weighted avg"]["recall"],
+        "F1-Score": report["weighted avg"]["f1-score"],
+    }
+
+df = pd.DataFrame(data)
+df.index.name = "Metric"
+
+
+# 绘制柱状图
+df.plot(kind="bar", figsize=(10, 6))
+plt.title("Classification Metrics for Different Models")
+plt.ylabel("Score")
+plt.xticks(rotation=0)  # 保持横轴标签水平
+plt.ylim(0, 1)  # 分数范围为 [0, 1]
+plt.legend(title="Models", loc="lower right")
+plt.grid(axis="y", linestyle="--", alpha=0.7)
+
+plt.show()
