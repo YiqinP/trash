@@ -1,0 +1,38 @@
+import re
+import os
+
+def process_latex_file(file_path, base_dir):
+    # 读取 summary 文件
+    with open(file_path, 'r', encoding='utf-8') as file:
+        content = file.read()
+
+    # 匹配 \input{filename} 或 \include{filename}
+    pattern = r'\\(input|include)\{(.+?)\}'
+    matches = re.findall(pattern, content)
+
+    for command, filename in matches:
+        # 构造引用文件的完整路径
+        included_file_path = os.path.join(base_dir, filename + '.tex')
+        
+        # 检查文件是否存在
+        if os.path.exists(included_file_path):
+            # 读取引用文件的内容
+            with open(included_file_path, 'r', encoding='utf-8') as included_file:
+                included_content = included_file.read()
+            
+            # 用文件内容替换 \input 或 \include 命令
+            content = content.replace(f'\\{command}{{{filename}}}', included_content)
+        else:
+            print(f"Warning: File {included_file_path} not found.")
+
+    # 保存结果到新的文件
+    output_file_path = os.path.join(base_dir, 'merged_summary.tex')
+    with open(output_file_path, 'w', encoding='utf-8') as output_file:
+        output_file.write(content)
+    
+    print(f"Merged LaTeX file saved as {output_file_path}")
+
+# 使用示例
+summary_file = 'summary.tex'  # summary 文件路径
+base_directory = './'  # 基础目录，包含 summary.tex 和引用的文件
+process_latex_file(summary_file, base_directory)
