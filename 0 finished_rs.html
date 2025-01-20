@@ -1,0 +1,765 @@
+<!doctype html>
+<html style='font-size:16px !important'>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857143; overflow-x: hidden; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit; background-repeat: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) { 
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font-family: inherit; font-size: inherit; font-style: inherit; font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right-width: 0px; background-color: inherit; }
+.CodeMirror-linenumber { -webkit-user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; position: relative !important; background-position: inherit; background-repeat: inherit; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; background-position: 0px 0px; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print { 
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background-color: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) { 
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background-color: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; }
+a.md-print-anchor { white-space: pre !important; border: none !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; text-shadow: initial !important; background-position: 0px 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom-width: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background-color: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print { 
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit; background-repeat: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) { 
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) { 
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.428571429rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left-width: 28px; border-left-style: solid; border-left-color: transparent; border-right-width: 28px; border-right-style: solid; border-right-color: transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right-width: 8px; border-right-style: solid; border-right-color: transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left-width: 0.25em; border-left-style: solid; border-left-color: rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.mac-os #write{
+    caret-color: AccentColor;
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+  min-height: 1px;
+  min-width: 1px;
+}
+
+mjx-container[jax="SVG"] > svg a {
+  fill: blue;
+  stroke: blue;
+}
+
+mjx-assistive-mml {
+  position: absolute !important;
+  top: 0px;
+  left: 0px;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 1px 0px 0px 0px !important;
+  border: 0px !important;
+  display: block !important;
+  width: auto !important;
+  overflow: hidden !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+mjx-assistive-mml[display="block"] {
+  width: 100% !important;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][display="true"][width="full"] {
+  display: flex;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line], svg[data-table] > g > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame], svg[data-table] > g > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed, svg[data-table] > g > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted, svg[data-table] > g > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > g > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+mjx-container[jax="SVG2"] path[data-c], mjx-container[jax="SVG2"] use[data-c] {
+  stroke-width: 3;
+}
+
+g[data-mml-node="xypic"] path {
+  stroke-width: inherit;
+}
+
+.MathJax g[data-mml-node="xypic"] path {
+  stroke-width: inherit;
+}
+mjx-container[jax="SVG"] path[data-c], mjx-container[jax="SVG"] use[data-c] {
+							stroke-width: 0;
+						} @media print { @page {margin: 0 0 0 0;} body.typora-export {padding-left: 0; padding-right: 0;} #write {padding:0;}}
+</style><title>0 finished_rs</title>
+</head>
+<body class='typora-export'><div class='typora-export-content'>
+<div id='write'  class=''><h2 id='part-1-clarifying--requirements'><span>Part 1. Clarifying  Requirements</span></h2><p><span>Sure, before we begin, I’d like to clarify a few requirements to ensure the design aligns with the actual goals and business needs.</span></p><p><span>[目标] First, what’s the primary business objective for this system? Are we focusing on increasing  user satisfaction (电商) / engagement (新闻或视频) / retention (社交)?</span></p><p><span>[数据] What types of data will we be working with? Is it mainly text, images, videos, or a combination? </span></p><p><span>[数据] Also, what kinds of user interactions are available, such as likes, shares, or comments?</span></p><p><span>[数据] Can you share some details about the data scale? For example, how many items and users are there? </span></p><p><span>[数据] Should we prepare for cold start challenges, like new users or items with little to no interaction data?</span></p><p><span>[实时性] What are the real-time requirements for this system? Does it need to respond within milliseconds, or is a slightly longer delay acceptable?</span></p><p><span>Let&#39;s summarize the problem statement. [目标] The primary goal is to [e.g., increase click-through rate (CTR), improve user engagement, or boost conversion rate (CVR)]. [数据] We have access to [e.g., text, image, or video data], and user interactions such as [e.g., likes, shares, clicks]. This will be the foundation for building the recommendation system. [数据] We may face challenges with [e.g., new users or new items] due to limited interaction data. [实时性] The system needs to respond within [e.g., 100 milliseconds] to ensure a seamless user experience.</span></p><p>&nbsp;</p><h2 id='part-2-frame-the-problem-as-an-ml-task'><span>Part 2. Frame the Problem as an ML Task</span></h2><p><span>Now that we have summarized the problem statement, let’s frame it as a machine learning system. </span></p><h3 id='defining-the-ml-objective'><span>Defining the ML objective</span></h3><p><span>The primary goal of our system is to increase user engagement/satisfaction/retention. To achieve this, we use implicit and explicit reactions to measure user interest. </span></p><ul><li><p><span>Implicit reactions, such as reading time, watch time, dwell time, and clicks, are abundant and easy to collect, making them useful for training models. However, they are not always accurate—high click-through rates may result from clickbait rather than genuine interest. </span></p></li><li><p><span>On the other hand, explicit reactions, such as likes, comments, shares, and negative feedback like hiding or blocking content, provide more accurate signals but are much sparser, as many users engage with content without explicitly interacting with it. </span></p></li><li><p><span>For content types like videos or news articles, one possible objective is to maximize the number of completed views, but this can introduce biases—for instance, shorter videos may have a higher finish rate.</span></p></li></ul><h3 id='specifying-the-systems-input-and-output'><span>Specifying the system&#39;s input and output</span></h3><p><span>The system takes a user profile as input and produces a ranked list of items based on relevance scores.</span></p><h3 id='choosing-the-right-ml-category'><span>Choosing the right ML category</span></h3><p><span>Two types of models can be used in this system, late-fusion and early-fusion models.  </span></p><ul><li><p><span>Late-fusion models compute separate representations for users and items and recommend items based on embedding similarity. These models are highly efficient and scalabler but do not capture complex feature interactions, which may limit recommendation precision. </span></p></li><li><p><span>In contrast, early-fusion models concatenate user and item features before making predictions, allowing the model to capture complex feature interactions. This approach improves accuracy by learning nonlinear relationships but comes with higher computational costs and complexity, requiring careful hyperparameter tuning and regularization to prevent overfitting.</span></p></li></ul><p><span>Given the scale of data and the need to balance efficiency and accuracy, a two-stage approach combining both models is the most effective strategy.</span></p><ul><li><p><span>In the first stage, late-fusion models are used for candidate generation, efficiently narrowing the pool of potential recommendations from billions of items to a few thousand. </span></p></li><li><p><span>In the second stage, early-fusion models score and rank the candidates, prioritizing accuracy over efficiency to refine the final recommendations.</span></p><p>&nbsp;</p></li></ul><h2 id='part-3-data-preparation'><span>Part 3. Data Preparation</span></h2><p><span>Now, let’s take a look at the types of data we can use, that is the data preparation part. I’ll start with data engineering and then move on to feature engineering.  </span></p><h3 id='data-engineering'><span>Data Engineering</span></h3><p><span>Our system relies on three main types of data: items, users, and user-item interactions. Item data consists of different types of content, each with its own attributes. For example, </span></p><ul><li><p><span>Video data includes raw video files along with metadata such as video ID, duration, title, and tags. </span></p></li><li><p><span>Events data includes host user ID, category, description, price, location, and time.</span></p></li><li><p><span>Listings data includes host ID, square footage, location, and price. </span></p></li><li><p><span>Advertisements data includes ad ID, category, subcategory, and media content such as images or videos. </span></p></li><li><p><span>Post data includes author ID, textual content, images or videos, hashtags, mentions, timestamps, and engagement metrics such as likes, shares, comments, and reports.</span></p></li></ul><p><span>User data includes user demographics (such as age, gender, city, language) as well as contextual information (such as device, time of the day). In addition, we have information about </span></p><ul><li><p><span>Users&#39; educational and work background, skills. </span></p></li></ul><ul><li><p><span>Author&#39;s violation history such as number of violations, total user reports, profane words rate.</span></p></li><li><p><span>Account information such as number of followers and followings, account age</span></p></li></ul><p><span>User-item interaction data records various types of engagements between users and content. Each record includes the interaction type, user ID, item ID, timestamp, and location. Common interactions include impressions, clicks, like, share, comment, block</span></p><ul><li><p><span>(event) registrations, invitation</span></p></li><li><p><span>(booking system) book</span></p></li><li><p><span>(linkedin friendship)connection request, accept a request, view profile, reacts to posts</span></p></li></ul><h3 id='feature-engineering'><span>Feature Engineering</span></h3><p><span>To deal with these data, feature engineering includes two steps, feature selection and data preprocessing. As all the listed attribute are relevant to our model, we will use all of them as features.</span></p><ul><li><p><span>[理由] As the goal of the model is to... [做法] we will not use all the attributes, we only use the attributes that are relevant to our model as features. [介绍] Such as ...</span></p></li><li><p><span>[理由] Events can&#39;t be consumed once they end, so they&#39;re short-lived, with limited historical interactions. This makes event-based recommendations suffer from cold-start problem. [做法] To address this, we need to create some meaningful features. Given the time constraints, I&#39;ll just discuss the most important ones. [介绍] For item, some important features include:</span></p></li></ul><p><span>Once features are defined, data preprocessing ensures they are formatted appropriately for the model. The data need to be preprocessed before being passed to the model. </span></p><ul><li><p><span>[类别] Categorical features require transformation into numerical representations. For categories with a limited set of values, such as gender, one-hot encoding is effective. For features with a large number of categories, such as language, embedding learning (a dense vector) provides a more efficient representation. </span></p></li><li><p><span>[连续] Numerical features need to be standardized for consistent scaling. We apply normalization or standardization to bring features into a comparable range. If a numerical feature exhibits significant skewness, we can apply log transformation or bucketing, converting continuous values into discrete categories.  </span></p></li><li><p><span>[文本]  Text features are transformed into numerical representations through three key steps: normalization, tokenization, and token-to-ID mapping. For short text elements like tags, lightweight models such as TF-IDF or Word2Vec can efficiently generate embeddings. For longer text, such as item descriptions, more advanced models like pretrained BERT provide context-aware embeddings, capturing deeper semantic relationships. </span></p></li><li><p><span>[图片] Image features are processed in four steps: resizing to standardize pixel dimensions, scaling pixel values to a 0-1 range, normalization to achieve zero mean and unit variance, and ensuring color consistency by converting images to standardized formats such as RGB or CMYK. Feature extraction can be performed using CNN-based models like ResNet or transformer-based models like Vision Transformers, which generate rich, high-dimensional embeddings suitable for downstream tasks. </span></p></li><li><p><span>[视频] The preprocessing pipeline for videos follows two main approaches: frame-based processing and end-to-end video modeling. Frame-based processing first decodes compressed video streams into raw frames, then samples key frames. Each sampled frame is treated as an image to generate video embedding. Instead of processing frames separately, end-to-end video ,odeling directly feeds the video into models designed for spatiotemporal feature learning, such as 3D CNNs (e.g., C3D, I3D) and transformer-based architectures (e.g., TimeSformer, ViViT). </span></p></li></ul><p><span>After preprocessing, all features are converted into numerical representations to form the final input to the model.</span></p><p>&nbsp;</p><h2 id='part-4-model-development'><span>Part 4. Model Development</span></h2><p><span>With such features, we move to models development part.</span></p><p><span>For the candidate generation stage, several models can be considered, each suited to different types of recommendation scenarios. </span></p><ul><li><p><u><span>Memory-Based Collaborative Filtering</span></u><span> is effective when interaction data between users and items is dense, as it directly identifies similar users and items based on past interactions. </span></p></li><li><p><span>However, when interaction data is sparse, </span><u><span>Matrix Factorization</span></u><span> is a more suitable choice, as it captures latent relationships by factorizing the user-item interaction matrix, helping to alleviate data sparsity issues. </span></p></li><li><p><span>Another approach is the </span><u><span>Two-Tower Model</span></u><span>, which, like the previous methods, aims to match users and items but is particularly beneficial when interaction data is supplemented with rich user and item features. This model excels in capturing cross-interactions between features, making it ideal for scenarios where user preferences depend on more than just past interactions. </span></p></li><li><p><span>In contrast, </span><u><span>Item2Vec</span></u><span> is designed to find similar items based on user engagement sequences, such as clickstreams or purchase behaviors, making it well-suited for recommendation tasks focused on item similarity. </span></p></li><li><p><span>Lastly, </span><u><span>DeepWalk</span></u><span> is the best option when users or items naturally form a network structure, such as a social graph or a knowledge graph. Given that our dataset contains not only user-item interactions but also rich user and item features, we chose to use the Two-Tower Model for candidate generation. </span></p></li></ul><p><span>The core idea  Two-Tower Model is to learn separate embeddings for users and items using two independent networks, making recommendations based on their similarity. </span></p><ul><li><p><span>[架构] The user tower takes user features as input, where categorical features are first passed through embedding layers to be converted into dense vectors. These vectors are then concatenated with numerical features and processed by a deep neural network (DNN) to generate the final user representation. Similarly, the item tower processes item features to generate an item representation. The similarity between the user and item embeddings is then computed using cosine similarity, determining how well an item matches a user. Items with the highest scores are recommended. </span></p></li><li><p><span>[训练] The model can be trained using a pointwise approach, where each data point consists of a user-item pair and a label. If a user has interacted with an item, it is considered a positive pair; otherwise, it is treated as negative. The objective is to maximize the similarity score for positive pairs while minimizing it for negative pairs. Binary Cross-Entropy Loss is commonly used to optimize this process, ensuring the model effectively distinguishes between relevant and irrelevant recommendations.</span></p></li></ul><p><span>For the scoring stage, the focus shifts from retrieving to accurately ranking. Several models are suitable for this purpose.</span></p><ul><li><p><u><span>Factorization Machines (FM)</span></u><span> are particularly effective when optimizing a specific metrics such as relevance score, as they explicitly model feature interactions. </span></p></li><li><p><span>However, if both memorization (capturing frequent past patterns) and generalization (identifying new relevant recommendations) are important, the </span><u><span>Wide &amp; Deep Model</span></u><span> is a strong choice, as it combines linear and deep learning components to achieve both goals. </span></p></li><li><p><span>In cases where user behavior sequences play a significant role, the </span><u><span>Deep Interest Network (DIN)</span></u><span> is an excellent option. </span></p></li><li><p><span>Similar to DeepWalk, </span><u><span>Graph Neural Networks (GNNs)</span></u><span> are best suited for scenarios where users or items form an interconnected graph structure. To balance memorization of past interactions with generalization for new recommendations, we selected the Wide &amp; Deep Model for the scoring stage. </span></p></li></ul><p><span>The Wide &amp; Deep Model consists of two components: the Wide part and the Deep part. The Wide part captures explicit feature interactions to retain past user preferences, while the Deep part uncovers high-order feature interactions, identifying latent needs that users may not have explicitly expressed. By combining these two, the model enhances both accuracy and novelty in recommendations.</span></p><ul><li><p><span>[例子] For Example, in an e-commerce scenario, the wide part leverages a user’s purchase history to reinforce recommendations based on known preferences.  Meanwhile, the Deep part analyzes implicit signals to identify and suggest new products the user might be interested in.</span></p></li><li><p><span>[架构] The model takes both users and items features as input. The wide part processes categorical features, passing them through a cross-product layer to generate feature crosses that capture explicit feature interactions. These interactions are then fed into a linear layer to produce the output of the wide component. The deep part takes both numerical and categorical features, converting categorical data into dense embeddings through embedding layers. These embeddings are concatenated with numerical features and processed by a deep neural network (DNN) to generate the deep component’s output. The outputs from both parts are then combined and passed through a weighted linear layer, followed by an activation function (e.g., sigmoid) to produce the final prediction. </span></p></li><li><p><span>[训练] The model can be trained using a pointwise approach, where each data point consists of a user-item pair and a label. The objective is to minimize the difference between the predicted and actual labels. If the label is a binary class, cross-entropy loss is used. If the label is a number, Mean Squared Error (MSE) loss is applied. </span></p></li><li><p><span>[缺点] A limitation of this model is, the wide component depends on feature engineering, requiring extensive manual feature design, which increases development costs. To mitigate this, automated feature crossing techniques (e.g., CrossNet in Deep &amp; Cross Networks) can be employed to automatically generate feature interactions, reducing the need for manual intervention.</span></p></li></ul><p>&nbsp;</p><h2 id='part-5-evaluation'><span>Part 5. Evaluation</span></h2><p><span>After model has been developed, we have to evaluate the model performance. The goal of evaluation is to ensure the model aligns with business objectives and performs effectively in both offline and real-world scenarios. For a recommendation system, this involves validating relevance, diversity, and user engagement.</span></p><h3 id='offline-evaluation'><span>Offline Evaluation</span></h3><p><span>To assess the model offline, we need to define an appropriate data splitting strategy, train the model, and select relevant evaluation metrics to measure its performance.</span></p><p><span>There are three widely used data splitting strategies: K-Fold Cross Validation, Hold-out Validation, and Bootstrap. </span></p><ul><li><p><span>[K-Fold Cross] K-Fold Cross Validation provides a robust estimate of model performance and is particularly beneficial for moderate-sized datasets. It splits the data into K equal folds, where each fold serves as a validation set once while the remaining folds are used for training. This ensures that every data point contributes to both training and validation, minimizing information leakage and reducing the impact of data splits. </span></p></li><li><p><span>[Hold-out] Hold-out Validation is a simple and efficient approach, well-suited for large datasets. It divides the data into training and test sets (e.g., 80/20 or 70/30), providing a straightforward way to evaluate model performance. </span></p></li><li><p><span>[Bootstrap] Bootstrap is particularly effective for small datasets and can exam model&#39;s sensitivity to variations in the training data. It generates multiple bootstrap samples by sampling with replacement, allowing the model to be trained on different variations of the dataset. </span></p></li><li><p><span>[Conclusion] Given our large dataset and computational efficiency considerations, we choose Hold-out Validation. However, I would be cautious of the potential variance introduced by a single random split. If significant variance is observed, I could conduct multiple random splits and average the results to enhance the robustness of the evaluation.</span></p></li></ul><p><span>For offline metrics, except the model loss, I would use Precision@K and Recall@K to measure relevance, NDCG for ranking quality, and mAP for a comprehensive evaluation of ranking all relevant items. For diversity, I’d calculate metrics like intra-list diversity, Gini index or catalog coverage. </span></p><h3 id='online-evaluation'><span>Online Evaluation</span></h3><p><span>For online evaluation, I’d run A/B tests, randomly splitting users into control and test groups, and monitor metrics like ... </span></p><p><span>This metric measures the overall engagement of both passive and active users.</span></p><ul><li><p><span>Click-through rate: The ratio between the total number of click and the total number of impressions (recommended videos). but it cannot capture or measure clickbait.</span></p></li><li><p><span>[Time] Total (watch) time. spend on the timeline during a fixed period, such as 1 week. </span></p></li><li><p><span>[Item] Complete of Item: item completion rate</span></p></li><li><p><span>[Feedback] Explicit user feedback rate. </span></p></li><li><p><span>[Money] Conversion rate:  Number of conversions /Number of impressions, Revenue lift. This measures the percentage of revenue increase over time.</span></p></li></ul><p>&nbsp;</p><h2 id='part-6-serving'><span>Part 6. Serving</span></h2><p><span>After defining the appropriate metrics and training a model, the next step is deploying the model to production to serve users. Serving users effectively requires an ML system with various components working together. In general, there are three main pipelines : data preparation, continual learning, and prediction.</span></p><p><span>For the data part, to serve users effectively, the system categorizes features into two types: Batch Features and Online Features.Batch features are static and rarely change, such as an item&#39;s category. These can be  precomputed and stored in a Feature Store for efficient retrieval during serving.Online features, on the other hand, are dynamic and frequently updated, like time-based data. These need to be computed in real-time.</span></p><p><span>The primary responsibilities of the Data Preparation Pipeline are: (1) compute both batch and online features; (2) generate training data for model fine-tune. Therefore, the pipeline takes two inputs real-time data and historical data stored in the Data Lake. Then, both inputs are used to compute batch and online features. Once the batch features are computed, they are stored in the Feature Store for future use. Online features, combined with the batch features retrieved from the Feature Store, are then processed in the Dataset Generation module to create training data, which will be input to continual learning pipeline.</span></p><p><span>The continual learning pipeline is responsible for fine-tuning the model on new training data, evaluating its performance, and, if the new model improves the metrics, deploying it and uploading it to the Model Registry [indexing the embedding].</span></p><p><span>The prediction pipeline consists of three components: candidate generation for narrowing down the candidates from potentially billions to thousands , scoring which outputs a  ranked item list, and re-ranking.  This component re-ranks the videos by adding additional criteria or constraints. For example, we can increase the recommendation diversity by removing very similar item from the list.</span></p><p>&nbsp;</p></div></div>
+</body>
+</html>
